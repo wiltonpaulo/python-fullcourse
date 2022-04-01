@@ -1,9 +1,10 @@
-from itertools import count
 import urllib.request
 import re
 import sys
 
 url = sys.argv[1]
+# https://storage.googleapis.com/nginx_log_parsing.interviews.barefootcoders.com/example_case_1.access.log
+# https://storage.googleapis.com/nginx_log_parsing.interviews.barefootcoders.com/example_case_2.access.log
 
 
 def get_unique_numbers(numbers):
@@ -52,11 +53,12 @@ def solution(access_log_uri):
                 #print(f"addr not in list: {addr}")
 
     data = get_unique_numbers(sensitive_request_addr)
-    count = 0
-    for element in data:
-        count += 1
-        print(element)
-    print(int(count))
+    count = len(data)
+#    for element in data:
+#        count += 1
+#        print(element)
+#    print(int(count))
+    print(len(data))
 
 
 solution(url)
