@@ -1,6 +1,8 @@
 import requests
+import os
 
-API_KEY = "fd5b210ef960a57981b0d9c52c41dea8"
+# set the envvar API_KEY before run this code
+API_KEY = os.environ['API_KEY']
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 city = input("Enter a city name: ")
