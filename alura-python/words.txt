@@ -11,3 +11,7 @@ elevator
 bombastic
 construction
 strawberry
+camera
+meeting
+windows
+dentist

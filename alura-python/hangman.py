@@ -1,12 +1,20 @@
-from http import server
-from re import M
+import random
 
 
 def play():
+    file = open("words.txt", "r")
+    words = []
+    for line in file:
+        words.append(line.strip())
+    file.close()
+
+    id = random.randrange(0, len(words))
+    secret_word = words[id].upper()
+    print(secret_word)
+
     print("Welcome to the Hangman Game!")
     print("**********************")
 
-    secret_word = "paralelepipedo".upper()
     right_letters = [" _ " for letter in secret_word]
     hanged = False
     hit_the_word = False
