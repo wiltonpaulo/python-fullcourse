@@ -1,0 +1,13 @@
+keyboard
+computer
+television
+table
+highway
+backpack
+closet
+banana
+beanstalk
+elevator
+bombastic
+construction
+strawberry
