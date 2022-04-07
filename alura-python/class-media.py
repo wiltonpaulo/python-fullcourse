@@ -42,19 +42,44 @@ class Serie(Media):
         return f'Serie: {self.name} - Year {self.year} - Seasons {self.seasons} - {self.likes} Likes'
 
 
+class Playlist():
+    def __init__(self, name, medias):
+        self.name = name
+        self._medias = medias
+
+    def __getitem__(self, item):
+        return self._medias[item]
+
+    def __len__(self):
+        return len(self._medias)
+
+
 avengers = Movie('avengers - ininity war', 2018, 160)
 atlanta = Serie('atlanta', 2018, 2)
+scream = Movie('scream', 1999, 120)
+daredevil = Serie('daredevil', 2003, 3)
 
 avengers.give_like
+scream.give_like
+avengers.give_like
+avengers.give_like
+daredevil.give_like
+scream.give_like
+avengers.give_like
+daredevil.give_like
+scream.give_like
 avengers.give_like
 avengers.give_like
 avengers.give_like
 avengers.give_like
+daredevil.give_like
 atlanta.give_like
 atlanta.give_like
+daredevil.give_like
 
 
-medias = [avengers, atlanta]
+medias = [avengers, atlanta, daredevil, scream]
+weekend_playlist = Playlist('Weekend', medias)
 
 # This is a polymorphism/polimorfismo
 # for media in medias:
@@ -68,5 +93,8 @@ medias = [avengers, atlanta]
 #            f"The Serie: {media.name} has {media.seasons} seasons ({media.year}) | {media.likes} Likes")
 
 # simplifying a bit more
-for media in medias:
-    print(media)
+print(
+    f"Playlist: weekend_playlist.name - Size: {len(weekend_playlist)} Medias")
+
+for media in weekend_playlist:
+    print(f"  => {media}")
