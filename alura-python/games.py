@@ -9,7 +9,6 @@ print("(1) Hangman!")
 print("(2) Guess the Number!")
 
 game = int(input("Which game? "))
-
 if (game == 1):
     print(f"Playing -> Game: Hangman! ...")
     hangman.play()

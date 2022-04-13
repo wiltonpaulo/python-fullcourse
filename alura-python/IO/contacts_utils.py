@@ -9,7 +9,6 @@ def csv_to_contacts(path, encoding="latin_1"):
 
     with open(path, encoding=encoding) as file:
         reader = csv.reader(file)
-
         for id, name, email in reader:
             contact = Contact(id, name, email)
             contacts.append(contact)
@@ -31,7 +30,7 @@ def pickle_to_contacts(path):
 def contacts_to_json(contacts, path):
     with open(path, mode="w") as file:
         # using internal var and function to convert to dict
-        #json.dump(contacts, file, default=_contact_to_json)
+        # json.dump(contacts, file, default=_contact_to_json)
 
         # using lambda to conversion to dict
         json.dump(contacts, file, default=lambda contato: contato.__dict__)

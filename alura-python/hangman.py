@@ -71,7 +71,8 @@ def greeting_message():
 
 def print_hangman(right_letters, errors):
     if errors == 0:
-        print("""
+        print(
+            """
             +----+
             |    |
                  |
@@ -79,9 +80,11 @@ def print_hangman(right_letters, errors):
                  |
                  |
            =========
-            """)
+            """
+        )
     elif errors == 1:
-        print("""
+        print(
+            """
             +----+
             |    |
             O    |
@@ -89,9 +92,11 @@ def print_hangman(right_letters, errors):
                  |
                  |
            =========
-            """)
+            """
+        )
     elif errors == 2:
-        print("""
+        print(
+            """
             +----+
             |    |
             O    |
@@ -99,9 +104,11 @@ def print_hangman(right_letters, errors):
                  |
                  |
            =========
-            """)
+            """
+        )
     elif errors == 3:
-        print("""
+        print(
+            """
             +----+
             |    |
             O    |
@@ -109,9 +116,11 @@ def print_hangman(right_letters, errors):
                  |
                  |
            =========
-            """)
+            """
+        )
     elif errors == 4:
-        print("""
+        print(
+            """
             +----+
             |    |
             O    |
@@ -119,9 +128,11 @@ def print_hangman(right_letters, errors):
            /     |
                  |
            =========
-            """)
+            """
+        )
     elif errors == 5:
-        print("""
+        print(
+            """
             +----+
             |    |
            Q/    |
@@ -129,11 +140,12 @@ def print_hangman(right_letters, errors):
           / \    |
                  |
           =========
-            """)
+            """
+        )
     for letter in right_letters:
         print(f" {letter} ", end="")
     print("")
 
 
-if (__name__ == "__main__"):
+if __name__ == "__main__":
     play()

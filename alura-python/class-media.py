@@ -21,7 +21,7 @@ class Media:
         self._name = name
 
     def __str__(self):
-        return f'Name: {self.name} - Year {self.year} - {self.likes} Likes'
+        return f"Name: {self.name} - Year {self.year} - {self.likes} Likes"
 
 
 class Movie(Media):
@@ -30,7 +30,10 @@ class Movie(Media):
         self.duration = duration
 
     def __str__(self):
-        return f'Movie: {self.name} - Year {self.year} - Duration {self.duration} - {self.likes} Likes'
+        return (
+            f"Movie: {self.name} - Year {self.year} - "
+            + f"Duration {self.duration} - {self.likes} Likes"
+        )
 
 
 class Serie(Media):
@@ -39,10 +42,13 @@ class Serie(Media):
         self.seasons = seasons
 
     def __str__(self):
-        return f'Serie: {self.name} - Year {self.year} - Seasons {self.seasons} - {self.likes} Likes'
+        return (
+            f"Serie: {self.name} - Year {self.year} - "
+            + f"Seasons {self.seasons} - {self.likes} Likes"
+        )
 
 
-class Playlist():
+class Playlist:
     def __init__(self, name, medias):
         self.name = name
         self._medias = medias
@@ -54,10 +60,10 @@ class Playlist():
         return len(self._medias)
 
 
-avengers = Movie('avengers - ininity war', 2018, 160)
-atlanta = Serie('atlanta', 2018, 2)
-scream = Movie('scream', 1999, 120)
-daredevil = Serie('daredevil', 2003, 3)
+avengers = Movie("avengers - ininity war", 2018, 160)
+atlanta = Serie("atlanta", 2018, 2)
+scream = Movie("scream", 1999, 120)
+daredevil = Serie("daredevil", 2003, 3)
 
 avengers.give_like
 scream.give_like
@@ -79,7 +85,7 @@ daredevil.give_like
 
 
 medias = [avengers, atlanta, daredevil, scream]
-weekend_playlist = Playlist('Weekend', medias)
+weekend_playlist = Playlist("Weekend", medias)
 
 # This is a polymorphism/polimorfismo
 # for media in medias:
@@ -87,14 +93,15 @@ weekend_playlist = Playlist('Weekend', medias)
 #    seasons = media.seasons if hasattr(media, 'seasons') else None
 #    if duration:
 #        print(
-#            f"The Movie: {media.name} has {media.duration} minutes ({media.year}) | {media.likes} Likes")
+#            f"The Movie: {media.name} has {media.duration} minutes" + \
+#           f"({media.year}) | {media.likes} Likes")
 #    elif seasons:
 #        print(
-#            f"The Serie: {media.name} has {media.seasons} seasons ({media.year}) | {media.likes} Likes")
+#            f"The Serie: {media.name} has {media.seasons} seasons " + \
+#           f"({media.year}) | {media.likes} Likes")
 
 # simplifying a bit more
-print(
-    f"Playlist: weekend_playlist.name - Size: {len(weekend_playlist)} Medias")
+print(f"Playlist: weekend_playlist.name - Size: {len(weekend_playlist)} Medias")
 
 for media in weekend_playlist:
     print(f"  => {media}")

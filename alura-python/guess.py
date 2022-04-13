@@ -9,7 +9,7 @@ def play():
     print(secret_number)
     score = 1000
     level = 0
-    #randrange(1, 99)
+    # randrange(1, 99)
 
     print("What difficult level do you want?")
     print("(1) Easy / (2) Medium / (3) Hard")
@@ -32,19 +32,23 @@ def play():
             print("You have to type 1, 2 or 3")
 
     attempt = 1
-    loose_score = (score / max_attempt)
+    loose_score = score / max_attempt
 
     while attempt <= max_attempt:
         user_number = int(
-            input(f"Please type a number and try to guess ({attempt}/{max_attempt}): "))
+            input(
+                f"Please type a number and try to guess", f"({attempt}/{max_attempt}): "
+            )
+        )
         if user_number == secret_number:
             print(
-                f"Awesome!!! you are good at guessing. The secret_number is {secret_number}\n")
+                f"Awesome!!! you are good at guessing. The secret_number is {secret_number}\n"
+            )
             break
         else:
-            if (user_number > secret_number):
+            if user_number > secret_number:
                 print("Your number is too HIGH")
-            elif (user_number < secret_number):
+            elif user_number < secret_number:
                 print("Your number is too LOW")
             attempt = attempt + 1
             score = score - loose_score
