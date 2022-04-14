@@ -5,7 +5,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 message = Mail(
-    from_email=("infotech@wpstec.com", "InfoTech"),
+    from_email=("mailsender@wpstec.com", "MailSender"),
     to_emails="wiltonpaulo@gmail.com",
     subject="Sending with SendGrid is Fun",
     html_content="<strong>and easy to do anywhere, even with Python</strong>",
