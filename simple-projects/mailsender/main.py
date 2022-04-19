@@ -7,11 +7,11 @@ from email.message import EmailMessage
 subject = "Email From Python"
 body = "This is a test email form Python!"
 sender_email = "userwpstec01@gmail.com"
-receiver_email = "userwpstec01@gmail.com"
+receiver_email = "wilton@wpstec.com"
 password = input("Enter a password: ")
 
 message = EmailMessage()
-#message["From"] = sender_email
+# message["From"] = sender_email
 message["From"] = "John Doe"
 message["To"] = receiver_email
 message["Subject"] = subject
