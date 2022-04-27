@@ -15,27 +15,19 @@ def create_app(test_config=None):
     else:
         app.config.from_mapping(test_config)
 
-    from .models import db, User, Note
+    from .models import db, User
 
     db.init_app(app)
     migrate = Migrate(app, db)
 
     def require_login(view):
-        @functools.wraps(view)
+        @functools.wrap(view)
         def wrapped_view(**kwargs):
             if not g.user:
                 return redirect(url_for("log_in"))
             return view(**kwargs)
 
         return wrapped_view
-
-    @app.before_request
-    def load_user():
-        user_id = session.get("user_id")
-        if user_id:
-            g.user = User.query.get(user_id)
-        else:
-            g.user = None
 
     @app.route("/sign_up", methods=("GET", "POST"))
     def sign_up():
@@ -57,7 +49,7 @@ def create_app(test_config=None):
                 )
                 db.session.add(user)
                 db.session.commit()
-                flash("Successfully signed up! Please log in.", "success")
+                flash("Sucessfully signed up! Please log in.", "success")
                 return redirect(url_for("log_in"))
 
             flash(error, "error")
@@ -94,32 +86,5 @@ def create_app(test_config=None):
     @app.route("/")
     def index():
         return "Index"
-
-    @app.route("/notes")
-    @require_login
-    def note_index():
-        return render_template("note_index.html", notes=g.user.notes)
-
-    @app.route("/notes/new", methods=("GET", "POST"))
-    @require_login
-    def note_create():
-        if request.method == "POST":
-            title = request.form["title"]
-            body = request.form["body"]
-            error = None
-
-            if not title:
-                error = "Title is required"
-
-            if error is None:
-                note = Note(author=g.user, title=title, body=body)
-                db.session.add(note)
-                db.session.commit()
-                flash("Successfully created note: {title}", "success")
-                return redirect(url_for("note_index"))
-
-            flash(error, "error")
-
-        return render_template("note_create.html")
 
     return app
