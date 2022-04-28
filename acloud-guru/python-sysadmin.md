@@ -43,6 +43,16 @@ pip3 uninstall -y -r requirements.txt
 pip3 install --user -r requirements.txt
 ```
 
+# virtualenvs with python3
+
+```sh
+mkdir venvs
+python3 -m venv venvs/experiment
+source venvs/experiment/bin/activate
+```
+
+\*\* remember to add "venvs" dir to .gitignore
+
 ### Additional materials
 
 https://github.com/linuxacademy/content-python3-sysadmin/tree/master/helpers
