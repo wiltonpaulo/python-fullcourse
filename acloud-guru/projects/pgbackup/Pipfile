@@ -5,8 +5,11 @@ name = "pypi"
 
 [packages]
 boto3 = "*"
+awscli-plugin-endpoint = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.9"

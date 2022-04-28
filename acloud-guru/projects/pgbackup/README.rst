@@ -39,3 +39,9 @@ If virtualenv isn't active then use:
 ::
 
     $ pipenv run make
+
+
+## Build package
+::
+    $ cd pgbackup
+    $ python setup.py bdist_wheel
